@@ -2,6 +2,7 @@ import { HiOfficeBuilding } from "react-icons/hi";
 import { FaPhone } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import { FaAngleDoubleRight } from "react-icons/fa";
+import ContactFormDetail from "./Details/ContactFormDetail";
 
 export default function Contact() {
   return (
@@ -54,22 +55,8 @@ export default function Contact() {
           Your email address will not be published. Required fields are marked *
         </p>
         <div className="flex flex-col md:flex-row gap-3">
-          <div className="flex flex-col gap-2 ">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="border-1 border-black py-2 px-2  rounded-sm w-120 "
-            />
-            <input
-              type="text"
-              placeholder="Your Phone"
-              className="border-1 border-black py-2 px-2 rounded-sm w-120"
-            />
-            <input
-              type="text"
-              placeholder="Your Email"
-              className="border-1 border-black py-2 px-2  rounded-sm w-120"
-            />
+          <div className="flex flex-col gap-2">
+            <ContactFormDetail />
           </div>
           <div className="flex flex-col gap-2">
             <textarea
