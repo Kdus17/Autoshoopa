@@ -1,5 +1,4 @@
 "use client";
-import { FaCartShopping } from "react-icons/fa6";
 import { GiGears } from "react-icons/gi";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { useCartContext } from "@/hooks/useCartContext";
@@ -72,7 +71,14 @@ export default function Navbar() {
          transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
         >
           <IoPersonCircleSharp className="text-2xl" />
-          Login/Register
+          Login/
+        </Link>
+        <Link
+          href="/register"
+          className="hover:text-yellow-400 flex flex-row gap-2
+         transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
+        >
+          Register
         </Link>
       </div>
     </div>

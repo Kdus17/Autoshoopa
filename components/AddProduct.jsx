@@ -3,7 +3,6 @@ import CategoryDetails from "./Details/CategoryDetail";
 import BrandDetails from "./Details/BrandDetail";
 import { useState } from "react";
 import { useAuthContext } from "@/hooks/useAuthContext";
-import { error } from "next/dist/build/output/log";
 import LoadingScreen from "@/components/LoadingScreen";
 
 export default function AddProduct() {

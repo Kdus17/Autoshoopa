@@ -1,5 +1,4 @@
 import {BiCart} from "react-icons/bi";
-import Link from "next/link";
 import Image from "next/image";
 import {useCartContext} from "@/hooks/useCartContext";
 

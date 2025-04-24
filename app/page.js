@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { MdShoppingCart } from "react-icons/md";
+import { MdRemoveShoppingCart } from "react-icons/md";
 import { useCartContext } from "@/hooks/useCartContext";
 import ProductList from "@/components/ProductList";
 import ProductExplore from "@/components/ProductExplore";
@@ -39,9 +41,10 @@ export default function Home() {
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="fixed top-4 right-4 z-100 bg-yellow-600 text-white px-4 py-2 rounded "
+        className="fixed top-2 right-4 z-100 flex flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
       >
-        {open ? "Close Cart" : "Open Cart"} {context.state.size}
+        {open ? <MdRemoveShoppingCart /> : <MdShoppingCart />}{" "}
+        {context.state.size}
       </button>
       {open && (
         <div>
