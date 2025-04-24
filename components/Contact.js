@@ -1,25 +1,21 @@
 import { HiOfficeBuilding } from "react-icons/hi";
 import { FaPhone } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
-import { FaAngleDoubleRight } from "react-icons/fa";
 import ContactFormDetail from "./Details/ContactFormDetail";
 
 export default function Contact() {
   return (
-    <div className="flex flex-col w-full">
-      <div className="bg-[url('https://demo2.wpopal.com/karpart/wp-content/uploads/2023/11/page-bc.jpg')] flex flex-col items-center justify-center h-75 text-white gap-1">
+    <div className="flex flex-col w-full font-mono">
+      <div className="bg-[url('https://demo2.wpopal.com/karpart/wp-content/uploads/2023/11/page-bc.jpg')] flex flex-col items-center justify-center h-75 text-white gap-1 mb-4">
         <p className="text-5xl font-bold">Contact</p>
-        <a href="#" className="outline">
-          Home Page
-        </a>
       </div>
       <div className="flex flex-col md:flex-row mx-25 border-1 border-black text-center items-center justify-around rounded-md py-20 gap-8 ">
         <div className="flex flex-col gap-3">
-          <p className="text-red-300">Get in Touch</p>
+          <p className="text-red-300 ">Get in Touch</p>
           <h1 className="text-4xl font-semibold">
             We are at your
             <br />
-            disposal 7 days a<br />
+            Disposal 7 days a<br />
             week!
           </h1>
         </div>
@@ -52,25 +48,9 @@ export default function Contact() {
           <br /> hear from you
         </h1>
         <p>
-          Your email address will not be published. Required fields are marked *
+          Your email address will not be published. Required fields are marked
         </p>
-        <div className="flex flex-col md:flex-row gap-3">
-          <div className="flex flex-col gap-2">
-            <ContactFormDetail />
-          </div>
-          <div className="flex flex-col gap-2">
-            <textarea
-              placeholder="Your Comment"
-              className="border-1 border-black py-2 px-2 rounded-sm h-35 w-120 md:w-100 "
-            />
-            <button
-              className="border-1 border-black py-2 px-2 rounded-sm hover:bg-yellow-400 w-1/2 
-            transition delay-150 duration-300 ease-in-out hover:-translate-y-1 flex flex-row items-center justify-center"
-            >
-              Submit <FaAngleDoubleRight />
-            </button>
-          </div>
-        </div>
+        <ContactFormDetail />
       </div>
     </div>
   );
