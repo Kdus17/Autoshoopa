@@ -44,12 +44,6 @@ export default function CheckOut() {
             </div>
           </div>
         ))}
-        {/* {Array.from(context.state).map(([key, value]) => (
-          <div key={key}>
-            <p>{key}</p>
-            <p>Hi There</p>
-          </div>
-        ))} */}
       </div>
       <button
         className="bg-yellow-400 w-full font-semibold py-2 px-3

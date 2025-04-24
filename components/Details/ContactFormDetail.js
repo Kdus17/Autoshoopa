@@ -198,7 +198,7 @@ export default function ContactFormDetail() {
 
       {submitStatus === "success" && (
         <div className="text-center text-green-500">
-          Message sent successfully! We'll get back to you soon.
+          Message sent successfully! We will get back to you soon.
         </div>
       )}
       {submitStatus === "error" && (
