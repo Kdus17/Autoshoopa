@@ -1,4 +1,9 @@
-export default function BrandDetails({ inputType }) {
+export default function BrandDetails({
+  inputType,
+  setBrands,
+  brands,
+  setBrand,
+}) {
   const Type = inputType || "checkbox";
   const Details = [
     {
@@ -56,6 +61,16 @@ export default function BrandDetails({ inputType }) {
       label: "Lexus",
     },
   ];
+  const handleUpdate = (e) => {
+    const is_found = brands && brands.includes(e.target.id);
+    if (is_found) {
+      setBrands(brands.filter((brand) => brand !== e.target.id));
+    } else if (Type === "checkbox") {
+      setBrands([...brands, e.target.id]);
+    } else {
+      setBrand(e.target.id);
+    }
+  };
 
   return (
     <div>
@@ -66,6 +81,7 @@ export default function BrandDetails({ inputType }) {
             id={data.id}
             name={data.name}
             className="cursor-pointer"
+            onChange={handleUpdate}
           />
           <label className="cursor-pointer px-2" htmlFor={data.id}>
             {data.label}

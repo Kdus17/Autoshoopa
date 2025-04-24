@@ -1,4 +1,9 @@
-export default function CategoryDetails({ inputType }) {
+export default function CategoryDetails({
+  inputType,
+  setCategories,
+  categories,
+  setCategory,
+}) {
   const Type = inputType || "checkbox";
   const Details = [
     {
@@ -51,6 +56,17 @@ export default function CategoryDetails({ inputType }) {
     },
   ];
 
+  const handleChange = (e) => {
+    const is_found = categories && categories.includes(e.target.id);
+    if (is_found && Type === "checkbox") {
+      setCategories(categories.filter((category) => category !== e.target.id));
+    } else if (Type === "checkbox") {
+      setCategories([...categories, e.target.id]);
+    } else {
+      setCategory(e.target.id);
+    }
+  };
+
   return (
     <div>
       {Details.map((data) => (
@@ -60,6 +76,7 @@ export default function CategoryDetails({ inputType }) {
             name={data.name}
             id={data.id}
             className="cursor-pointer"
+            onChange={handleChange}
           />
           <label className="cursor-pointer px-2" htmlFor={data.id}>
             {data.label}
