@@ -36,7 +36,7 @@ export default function Login (){
                 payload: json_response,
             })
             localStorage.setItem("autoshoppa-token", JSON.stringify(json_response))
-             router.push("/add")
+             router.push("/")
              console.log(json_response)
         }
         else {

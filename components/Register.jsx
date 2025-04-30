@@ -30,7 +30,7 @@ export default function register(){
                 payload: json_response.token,
             })
             localStorage.setItem("autoshoppa-token", json_response.token);
-            router.push("/shop")
+            router.push("/")
             console.log(json_response)
         }
 
