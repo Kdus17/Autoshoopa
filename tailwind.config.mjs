@@ -5,6 +5,8 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "media",
+
   theme: {
     extend: {
       colors: {
@@ -20,11 +22,11 @@ export default {
     container: {
       center: true,
       padding: "10rem",
-      screens:{
-        lg:"1124px",
-        xl:"1124px",
-        "2xl":"1124px",
-      }
+      screens: {
+        lg: "1124px",
+        xl: "1124px",
+        "2xl": "1124px",
+      },
     },
   },
   plugins: [],
