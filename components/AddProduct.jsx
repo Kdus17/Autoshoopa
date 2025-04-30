@@ -106,15 +106,16 @@ export default function AddProduct() {
       method="POST"
       encType={"multipart/form-data"}
       onSubmit={handleSubmit}
+      className="max-w-2xl mx-auto bg-white"
     >
       {!load && (
-        <div className=" px-8 py-10 flex text-black items-center justify-center">
-          <div className="flex flex-col gap-8">
+        <div className=" px-8 py-10 flex text-black rounded-md shadow-lg">
+          <div className="flex flex-col gap-8 w-full">
             <div className="flex flex-col gap-2">
               <span className="font-semibold text-md">Product Name:</span>
               <input
                 type="text"
-                className="border-2 w-full px-2 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
+                className="border-1 w-full px-4 py-2 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 placeholder="Product Name"
                 value={product_name}
                 onChange={(e) => {
@@ -131,7 +132,7 @@ export default function AddProduct() {
                 type="number"
                 name=""
                 id="price"
-                className="border-2 w-full px-2  rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
+                className="border-1 w-full px-4 py-2 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 placeholder="Price in Birr"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -141,10 +142,11 @@ export default function AddProduct() {
                     )}
             </div>
             <div className="self-center w-full">
+            <span className="font-semibold text-md">Product descrption:</span>
               <textarea
                 name=""
                 id="descrption"
-                className="border-2 w-[100%] h-32 px-2 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
+                className="border-1 w-[100%] h-32 px-4 py-2 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 placeholder="Enter Product Descrption"
                 value={description}
                 onChange={(e) => {
@@ -177,37 +179,39 @@ export default function AddProduct() {
                     )}
               </div>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols md:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-2">
               <span className="font-semibold text-xl">Year:</span>
               <input
                 type="number"
                 name=""
                 id="Year"
-                className="border-2 w-full px-2 border-gray-400 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
+                className="border-1 w-full px-4 py-2 border-gray-400 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 value={year}
                 placeholder={2000}
                 min={2000}
                 onChange={(e) => setYear(e.target.value)}
               />
             </div>
-            <div className="flex flex-col gap-4">
-              <span>Quantity:</span>
+            <div className="flex flex-col gap-2">
+              <span className="font-semibold text-xl">Quantity:</span>
               <input
                 type="number"
                 id="quantity"
-                className="border-2 w-full px-2 border-gray-400 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
+                className="border-1 w-full px-4 py-2 border-gray-400 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 value={quantity}
                 placeholder={1}
                 min={1}
                 onChange={(e) => setQuantity(e.target.value)}
               />
             </div>
-            <div className="flex flex-row gap-5">
+            </div>
+            <div className="flex flex-row gap-5 self-center">
               <label
                 className="block text-xl font-semibold text-gray-900 dark:text-white"
                 htmlFor="photo"
               >
-                Upload Photo
+                Upload Photo:
               </label>
               <input
                 className="w-50 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 px-2 py-1"
@@ -227,8 +231,8 @@ export default function AddProduct() {
             <input
               type="submit"
               value="Submit"
-              className="border-1 w-20 rounded-md px-2 py-1 mt-2
-                        font-semibold border-gray-400 self-center hover:bg-yellow-400"
+              className="border-1 w-full rounded-md px-2 py-2 mt-2 bg-yellow-400
+                        font-semibold border-gray-400 self-center hover:bg-yellow-500"
               placeholder="Enter your product description"
               onClick={handleSubmit}
             />

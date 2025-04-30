@@ -69,7 +69,7 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="flex flex-row items-center px-10 ">
+      <div className="flex flex-row items-center px-10 font-mono">
         <Link
           href="/login"
           className="hover:text-yellow-400 flex flex-row gap-2
