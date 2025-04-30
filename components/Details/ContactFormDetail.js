@@ -114,7 +114,7 @@ export default function ContactFormDetail() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border-2 caret-yellow-400 outline-none focus:border-yellow-400 rounded-md"
+            className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
             placeholder="Enter your name"
           />
           {errors.name && (
@@ -135,7 +135,7 @@ export default function ContactFormDetail() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border-2 caret-yellow-400 outline-none focus:border-yellow-400 rounded-md"
+            className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
             placeholder="Enter your email"
           />
           {errors.email && (
@@ -157,7 +157,7 @@ export default function ContactFormDetail() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-2 border-2 caret-yellow-400 outline-none focus:border-yellow-400 rounded-md"
+          className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
           placeholder="Enter your phone number"
         />
         {errors.phone && (
@@ -178,7 +178,7 @@ export default function ContactFormDetail() {
           value={formData.message}
           onChange={handleChange}
           rows="4"
-          className="w-full px-4 py-2 border-2 rounded-md caret-yellow-400 outline-none focus:border-yellow-400"
+          className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
           placeholder="Enter your message"
         />
         {errors.message && (
