@@ -21,7 +21,7 @@ export default function Navbar() {
       id="navbar"
     >
       <div
-        className="hover:text-yellow-400 text-5xl  space-y-1
+        className="hover:text-yellow-400 text-2xl md:text-5xl  space-y-1
        transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
       >
         {" "}
@@ -46,13 +46,13 @@ export default function Navbar() {
         >
           Products
         </Link>
-        <Link
+        {/* <Link
           href="/checkout"
           className="hover:text-yellow-400
          transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
         >
           Checkout
-        </Link>
+        </Link> */}
         <Link
           href="/contact"
           className="hover:text-yellow-400
@@ -69,25 +69,25 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="flex flex-row items-center px-10 font-mono">
+      <div className="flex flex-row items-center  font-mono">
         <Link
           href="/login"
           className="hover:text-yellow-400 flex flex-row gap-2
-         transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
+         transition delay-150 duration-300 ease-in-out hover:-translate-y-1 text-sm md:text-md"
         >
-          <IoPersonCircleSharp className="text-2xl" />
+          <IoPersonCircleSharp className="text-sm md:text-2xl" />
           Login/
         </Link>
         <Link
           href="/register"
           className="hover:text-yellow-400 flex flex-row gap-2
-         transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
+         transition delay-150 duration-300 ease-in-out hover:-translate-y-1 text-sm md:text-md"
         >
           Register
         </Link>
         <button
           onClick={() => setOpen(!open)}
-          className="flex flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
+          className="flex z-100 flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
         >
           {open ? <MdRemoveShoppingCart /> : <MdShoppingCart />}{" "}
           {context.state.size}

@@ -5,7 +5,7 @@ export default function ProductExplore() {
   return (
     <div className="flex flex-col items-center justify-center border-b border-black rounded-md bg-[url('https://demo2.wpopal.com/karpart/wp-content/uploads/2023/11/h1_bg-1.jpg')] bg-cover h-100 gap-5 text-white mt-10">
       <p className="">Your Trusted Platform</p>
-      <h1 className="text-7xl">
+      <h1 className="text-3xl md:text-5xl lg:7xl">
         Get the right part <br />
         at the right price
       </h1>
