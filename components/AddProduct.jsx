@@ -8,7 +8,9 @@ import LoadingScreen from "@/components/LoadingScreen";
 export default function AddProduct() {
   const [load, setLoad] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(null);
+  const [sent, setSent] = useState(false)
+  const [fail, setFail] = useState(null);
+  const [error, setError] = useState({});
   const context = useAuthContext();
   const [product_name, setProductName] = useState("");
   const [price, setPrice] = useState(0);
@@ -19,15 +21,39 @@ export default function AddProduct() {
   const [category, setCategory] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageview, setImageview] = useState(null);
+
+  const validateform=()=>{
+    const newErrors = {};
+    if(!product_name){
+      newErrors.name = "Product name is required"
+    }
+    if(!price){
+      newErrors.price = "Price is required";
+    }
+    if(!description.trim()){
+      newErrors.description = "description is required";
+    }
+    if(!brand){
+      newErrors.brand = "Product brand is required"
+    }
+    if(!category){
+      newErrors.category = "Product category is required";
+    }
+    if(!selectedFile){
+      newErrors.image = "Product image is required";
+    }
+    setError(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(!validateform()){
+      return;
+    };
+    setSent(false);
     setLoad(true);
 
-    if (!price || !description || !brand || !category || !selectedFile) {
-      alert("fill all");
-      // return;
-    } else {
-    }
     URL.revokeObjectURL(setImageview());
     const formData = new FormData();
     formData.append("product_name", product_name);
@@ -62,10 +88,12 @@ export default function AddProduct() {
     if (response.ok) {
       setLoad(false);
       setSuccess(true);
+      setSent(true);
       return response;
     } else {
-      setError(true);
+      setFail(true);
       setLoad(false);
+      setSent(true)
     }
   };
   const handleFileChange = async (e) => {
@@ -93,6 +121,9 @@ export default function AddProduct() {
                   setProductName(e.target.value);
                 }}
               />
+                               {error.name && (
+                  <p className="text-red-500 text-sm mt-1 font-mono">{error.name}</p>
+                    )}
             </div>
             <div className="flex flex-col gap-2">
               <span className="font-semibold text-md">Product Price:</span>
@@ -105,6 +136,9 @@ export default function AddProduct() {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
+                               {error.price && (
+                  <p className="text-red-500 text-sm mt-1 font-mono">{error.price}</p>
+                    )}
             </div>
             <div className="self-center w-full">
               <textarea
@@ -116,7 +150,11 @@ export default function AddProduct() {
                 onChange={(e) => {
                   setDescription(e.target.value);
                 }}
-              ></textarea>
+              >
+                                 {error.description && (
+                  <p className="text-red-500 text-sm mt-1 font-mono">{error.description}</p>
+                    )}
+              </textarea>
             </div>
             <div className="flex flex-row self-center">
               <div className="flex flex-col gap-2">
@@ -126,11 +164,17 @@ export default function AddProduct() {
                   className="items-center"
                   setCategory={setCategory}
                 />
+                 {error.category && (
+                  <p className="text-red-500 text-sm mt-1 font-mono">{error.category}</p>
+                    )}
               </div>
 
               <div className="flex flex-col gap-2">
                 <span className="text-lg font-semibold">Brands</span>
                 <BrandDetails inputType="radio" setBrand={setBrand} />
+                {error.brand && (
+                  <p className="text-red-500 text-sm mt-1 font-mono">{error.brand}</p>
+                    )}
               </div>
             </div>
             <div className="flex flex-col gap-4">
@@ -172,6 +216,9 @@ export default function AddProduct() {
                 name="photo"
                 onChange={handleFileChange}
               />
+                               {error.image && (
+                  <p className="text-red-500 text-sm mt-1 font-mono">{error.image}</p>
+                    )}
             </div>
             <div className="skeleton h-48 w-48 self-center">
               <img src={imageview} className="w-full h-full"></img>
@@ -189,17 +236,23 @@ export default function AddProduct() {
         </div>
       )}
       {load && <LoadingScreen />}
-      {error && (
-        <div className="toast toast-center">
+      {fail && sent && (
+        <div className="toast toast-center ">
           <div className="alert alert-error">
-            <span>Failed to add product</span>
+            <span>Failed to add!</span>
+            {setTimeout(() => {
+              setSent(false)
+            }, 2000)}
           </div>
         </div>
       )}
-      {success && (
-        <div className="toast toast-center">
+      {success && sent && (
+        <div className="toast toast-center ">
           <div className="alert alert-success">
-            <span>Product added</span>
+            <span>Product added to shop!</span>
+            {setTimeout(() => {
+              setSent(false)
+            }, 2000)}
           </div>
         </div>
       )}

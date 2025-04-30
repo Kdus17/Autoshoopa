@@ -5,7 +5,7 @@ import ContactFormDetail from "./Details/ContactFormDetail";
 
 export default function Contact() {
   return (
-    <div className="flex flex-col w-full text-black font-mono">
+    <div className="flex flex-col w-full text-black font-mono bg-gray-100">
       <div className="bg-[url('https://demo2.wpopal.com/karpart/wp-content/uploads/2023/11/page-bc.jpg')] flex flex-col items-center justify-center h-75 text-white gap-1 mb-4">
         <p className="text-5xl font-bold">Contact</p>
       </div>
@@ -24,32 +24,29 @@ export default function Contact() {
             <HiOfficeBuilding className="text-yellow-400" />
             Office Location
           </div>
-          <p>2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
+          <p>Addis Ababa</p>
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex flex-row gap-1 items-center">
             <FaPhone className="text-yellow-400" />
             <p>Phone Number</p>
           </div>
-          (229) 555-0109
+          +251900000000
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex flex-row gap-1 items-center justify-center">
             <TfiEmail className="text-yellow-400 " />
             <p className="text-center">Email Us</p>
           </div>
-          <p>contact@example.com</p>
+          <p>autoshoppa@gmail.com</p>
         </div>
       </div>
-      <div className="mt-15 flex flex-col gap-4 items-center">
+      <div className="mt-15 flex flex-col gap-4 items-center border-1 w-2/3 md:w-1/2 rounded-md shadow-xl self-center bg-white">
         <p className="text-yellow-400">Leave Your Message.</p>
         <h1 className="text-4xl font-bold text-center">
           We would love to
           <br /> hear from you
         </h1>
-        <p>
-          Your email address will not be published. Required fields are marked
-        </p>
         <ContactFormDetail />
       </div>
     </div>

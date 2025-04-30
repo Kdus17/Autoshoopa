@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <div
-      className="flex flex-row fixed  w-full font-serif justify-between shadow-lg text-black py-2 items-center max-h-3xl"
+      className="flex flex-row w-full font-serif justify-between shadow-lg text-black py-2 items-center max-h-3xl"
       id="navbar"
     >
       <div
