@@ -1,16 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import { MdShoppingCart } from "react-icons/md";
-import { MdRemoveShoppingCart } from "react-icons/md";
 import { useCartContext } from "@/hooks/useCartContext";
 import ProductList from "@/components/ProductList";
 import ProductExplore from "@/components/ProductExplore";
-import SideCheckout from "@/components/SideCheckout";
 import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
   const [load, setLoad] = useState(true);
-  const [open, setOpen] = useState(false);
+
   const context = useCartContext();
 
   const [latest_products, setLatestProducts] = useState([]);
@@ -39,30 +36,17 @@ export default function Home() {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(!open)}
-        className="fixed top-2 right-4 z-100 flex flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
-      >
-        {open ? <MdRemoveShoppingCart /> : <MdShoppingCart />}{" "}
-        {context.state.size}
-      </button>
-      {open && (
-        <div>
-          <SideCheckout />
-        </div>
-      )}
-
       {!load && (
         <div className="bg-gray-100 pl-8 pt-6">
           {latest_products.length > 0 && (
-            <h1 className="text-4xl border-b-4 inline-block border-yellow-400 font-bold mb-4">
+            <h1 className="text-4xl border-b-4 text-black inline-block border-yellow-400 font-bold mb-4">
               Latest Products{" "}
             </h1>
           )}
           <ProductList products={latest_products} title="latest" />
           <ProductExplore />
           {trending_products.length > 0 && (
-            <h1 className="text-4xl border-b-4  inline-block border-yellow-400 font-bold mt-10  mb-3">
+            <h1 className="text-4xl border-b-4 text-black inline-block border-yellow-400 font-bold mt-10  mb-3">
               Trending Products{" "}
             </h1>
           )}
