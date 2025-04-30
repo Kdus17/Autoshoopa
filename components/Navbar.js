@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <div
-      className="flex flex-row w-full font-serif justify-between shadow-lg text-black py-2 items-center max-h-3xl"
+      className="flex flex-row w-full font-serif justify-between shadow-lg text-black py-2 items-center max-h-3xl sticky top-0 z-50 bg-white"
       id="navbar"
     >
       <div
@@ -87,7 +87,7 @@ export default function Navbar() {
         </Link>
         <button
           onClick={() => setOpen(!open)}
-          className="fixed top-2 right-4 z-100 flex flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
+          className="flex flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
         >
           {open ? <MdRemoveShoppingCart /> : <MdShoppingCart />}{" "}
           {context.state.size}
