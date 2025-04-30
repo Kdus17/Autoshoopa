@@ -15,7 +15,7 @@ const data = [
 
 export default function TrackOrder() {
   return (
-    <div className="flex flex-col text-center gap-12 ">
+    <div className="flex flex-col text-black text-center gap-12 ">
       <h1 className="text-5xl">Order Managment Dashboard</h1>
       <table>
         <thead>

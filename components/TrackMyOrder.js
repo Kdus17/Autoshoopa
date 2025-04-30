@@ -18,7 +18,7 @@ export default function Track() {
   };
   return (
     <>
-      <div className="flex flex-col gap-6 px-25">
+      <div className="flex flex-col gap-6 text-black px-25">
         <h1 className="text-6xl font-bold">Track Order</h1>
         <p className="font-light">
           To track your order please enter your Order ID in the box below and
