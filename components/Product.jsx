@@ -20,7 +20,7 @@ export default function Product({product}) {
 
     return (
         <div className="w-full px-2 text-black">
-            <div className="flex flex-col p-4  border border-gray-100 bg-white rounded-t-md ">
+            <div className="flex flex-col p-4  border border-gray-100 bg-white rounded-t-md font-serif">
                 <Image src={product.image} alt="Test Image" width={150} height={50} className="self-center aspect-square border-b" />
 
                 <div className="flex flex-col justify-between w-full min-h-40 border-t border-gray-100">

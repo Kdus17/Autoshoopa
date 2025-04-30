@@ -31,7 +31,7 @@ export default function SearchBar() {
 
 
     return (
-        <div className="flex justify-center text-black px-3 py-2 my-2 gap-6">
+        <div className="flex justify-center text-black px-3 py-2 my-2 gap-6 font-mono">
 
             {/* <div className="relative flex text-white items-center gap-2 px-3 py-2 rounded-sm" ref={categoryRef}>
                 {displayCategoriesMenu && <div className="flex flex-col border border-gray-200 p-2 absolute bg-white text-black top-10 left-0 w-full" >
