@@ -5,7 +5,7 @@ import ContactFormDetail from "./Details/ContactFormDetail";
 
 export default function Contact() {
   return (
-    <div className="flex flex-col w-full font-mono">
+    <div className="flex flex-col w-full text-black font-mono">
       <div className="bg-[url('https://demo2.wpopal.com/karpart/wp-content/uploads/2023/11/page-bc.jpg')] flex flex-col items-center justify-center h-75 text-white gap-1 mb-4">
         <p className="text-5xl font-bold">Contact</p>
       </div>

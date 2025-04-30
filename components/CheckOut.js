@@ -22,7 +22,7 @@ export default function CheckOut() {
     },
   ];
   return (
-    <div className="fixed pt-20 inset-y-0 right-0 w-1/3 justify-between flex flex-col max-w-sm bg-white shadow-lg overflow-y-auto z-50">
+    <div className="fixed pt-20 inset-y-0 right-0 w-1/3 justify-between flex text-black flex-col max-w-sm bg-white shadow-lg overflow-y-auto z-50">
       <div className="flex flex-col w-full items-center gap-3">
         <h1 className="text-3xl font-semibold">Shopping Cart</h1>
         {items.map((item, index) => (

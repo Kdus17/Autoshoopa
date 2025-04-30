@@ -5,7 +5,7 @@ import Slide from "@/components/Year";
 
 export default function Filters({setBrands, setCategories,categories, brands, setMinimum, setMaximum, setYear, setYear2}) {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col text-black">
 
             <form className="flex flex-row px-10  gap-16">
                 <div className="flex flex-col gap-4 border-1 py-10 px-10 rounded-md w-100">
@@ -25,7 +25,6 @@ export default function Filters({setBrands, setCategories,categories, brands, se
                         <p className="text-xl font-bold ">Year</p>
                     </div>
                     <Slide setYear={setYear} setYear2={setYear2}/>
-                    <input type="number"></input>
                     <button
                         className="hover:bg-yellow-400 text-center py-2 rounded-md bg-black text-white
          transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
