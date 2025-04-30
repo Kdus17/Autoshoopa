@@ -13,7 +13,7 @@ export default function AddProduct() {
   const [product_name, setProductName] = useState("");
   const [price, setPrice] = useState(0);
   const [year, setYear] = useState(2000);
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(1);
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
@@ -80,13 +80,13 @@ export default function AddProduct() {
       onSubmit={handleSubmit}
     >
       {!load && (
-        <div className=" px-8 py-10 flex items-center justify-center">
+        <div className=" px-8 py-10 flex text-black items-center justify-center">
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-4">
-              <span className="font-semibold text-xl">Product Name:</span>
+            <div className="flex flex-col gap-2">
+              <span className="font-semibold text-md">Product Name:</span>
               <input
                 type="text"
-                className="border-1 w-full px-2 rounded-sm border-gray-400"
+                className="border-2 w-full px-2 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
                 placeholder="Product Name"
                 value={product_name}
                 onChange={(e) => {
@@ -94,13 +94,13 @@ export default function AddProduct() {
                 }}
               />
             </div>
-            <div className="flex flex-col gap-4">
-              <span className="font-semibold text-xl">Product Price:</span>
+            <div className="flex flex-col gap-2">
+              <span className="font-semibold text-md">Product Price:</span>
               <input
                 type="number"
                 name=""
                 id="price"
-                className="border-1 w-full px-2 border-gray-400 rounded-sm"
+                className="border-2 w-full px-2  rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
                 placeholder="Price in Birr"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -110,7 +110,7 @@ export default function AddProduct() {
               <textarea
                 name=""
                 id="descrption"
-                className="border-1 w-[100%] h-32 px-2 rounded-sm "
+                className="border-2 w-[100%] h-32 px-2 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
                 placeholder="Enter Product Descrption"
                 value={description}
                 onChange={(e) => {
@@ -139,7 +139,7 @@ export default function AddProduct() {
                 type="number"
                 name=""
                 id="Year"
-                className="border-1 w-full px-2 border-gray-400 rounded-sm"
+                className="border-2 w-full px-2 border-gray-400 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
                 value={year}
                 placeholder={2000}
                 min={2000}
@@ -151,7 +151,7 @@ export default function AddProduct() {
               <input
                 type="number"
                 id="quantity"
-                className="border-1 w-full px-2 border-gray-400 rounded-sm"
+                className="border-2 w-full px-2 border-gray-400 rounded-sm outline-none focus:border-2 focus:border-yellow-400 caret-yellow-500"
                 value={quantity}
                 placeholder={1}
                 min={1}

@@ -65,6 +65,7 @@ export default function CategoryDetails({
     } else {
       setCategory(e.target.id);
     }
+    console.log(categories);
   };
 
   return (
@@ -75,7 +76,7 @@ export default function CategoryDetails({
             type={data.type}
             name={data.name}
             id={data.id}
-            className="cursor-pointer"
+            className="cursor-pointer accent-yellow-900 foucs:caret-yellow-400 foucs:outline"
             onChange={handleChange}
           />
           <label className="cursor-pointer px-2" htmlFor={data.id}>
