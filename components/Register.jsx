@@ -39,7 +39,7 @@ export default function register(){
 
     return (
         <div>
-        <form action="" className="p-4 border border-gray-100 rounded-md flex flex-col h-screen justify-center items-center bg-white" onSubmit={handleChange}>
+        <form action="" className="p-4 border border-gray-100 rounded-md text-black flex flex-col h-screen justify-center items-center bg-white" onSubmit={handleChange}>
            <div className="flex flex-col w-1/3 px-10 py-10 rounded-md shadow-lg">
             <h3 className="text-2xl text-center font-semibold "> Register</h3>
 
