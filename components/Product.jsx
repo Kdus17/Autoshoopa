@@ -7,10 +7,12 @@ export default function Product({product}) {
 
     const context = useCartContext()
     const handleAddProduct = () => {
+        console.log(product)
 
         context.dispatch({
             type:"ADD_PRODUCT",
             payload:{
+                product_Id: product._id,
                 product_name: product.product_name,
                 price: product.price
             }
@@ -35,7 +37,7 @@ export default function Product({product}) {
                     
                 </div>
             </div>
-            <button className="flex flex-row items-center w-full justify-between text-white bg-[#1B283A]  py-2 px-3 rounded-b-md hover:bg-yellow-400"onClick={handleAddProduct}>
+            <button className="flex flex-row items-center w-full justify-between text-white bg-[#1B283A]  py-2 px-3 rounded-b-md hover:bg-yellow-400"onClick={()=>(handleAddProduct(product))}>
                 <span>
                     Add to cart  
                     </span>

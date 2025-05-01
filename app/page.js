@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <>
       {!load && (
-        <div className="bg-gray-100 pl-8 pt-6">
+        <div className="bg-gray-100 p-6">
           {latest_products.length > 0 && (
             <h1 className="text-4xl border-b-4 text-black inline-block border-yellow-400 font-bold mb-4">
               Latest Products{" "}
