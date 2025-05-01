@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { FaAngleDown } from "react-icons/fa";
+import { FaAngleUp } from "react-icons/fa";
+
 export default function CategoryDetails({
   inputType,
   setCategories,
@@ -5,56 +9,85 @@ export default function CategoryDetails({
   setCategory,
 }) {
   const Type = inputType || "checkbox";
-  const Details = [
-    {
-      id: "Filters",
-      type: Type,
-      label: "Filters",
-      name: "Category",
+  // const Details = [
+  //   {
+  //     id: "Filters",
+  //     type: Type,
+  //     label: "Filters",
+  //     name: "Category",
+  //   },
+  //   {
+  //     id: "Suspension",
+  //     type: Type,
+  //     label: "Suspension",
+  //     name: "Category",
+  //   },
+  //   {
+  //     id: "Lighting",
+  //     type: Type,
+  //     label: "Lighting",
+  //     name: "Category",
+  //   },
+  //   {
+  //     id: "Tires",
+  //     type: Type,
+  //     label: "Wheels & Tires",
+  //     name: "Category",
+  //   },
+  //   {
+  //     id: "Brakes",
+  //     type: Type,
+  //     label: "Brake System",
+  //     name: "Category",
+  //   },
+  //   {
+  //     id: "Body",
+  //     type: Type,
+  //     label: "Body",
+  //     name: "Category",
+  //   },
+  //   {
+  //     id: "Cool",
+  //     type: Type,
+  //     label: "Cooling System",
+  //     name: "Category",
+  //   },
+  //   {
+  //     id: "Engine",
+  //     type: Type,
+  //     label: "Engine",
+  //     name: "Category",
+  //   },
+  // ];
+
+  const [openGroups, setOpenGroups] = useState({});
+
+  const toggleGroup = (key) => {
+    setOpenGroups((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const Det = {
+    Engine: {
+      name: "Engine",
+      subcategory: ["Spark Plugs", "Fuel Injectors", "Pistons"],
     },
-    {
-      id: "Suspension",
-      type: Type,
-      label: "Suspension",
-      name: "Category",
+    Filter: {
+      name: "Filter",
+      subcategory: ["Oil Filter", "Fuel Filter", "Transmission Filter"],
     },
-    {
-      id: "Lighting",
-      type: Type,
-      label: "Lighting",
-      name: "Category",
+    Suspension: {
+      name: "Suspension",
+      subcategory: ["Shock Absorbers", "Control Arms", "Coil Springs"],
     },
-    {
-      id: "Tires",
-      type: Type,
-      label: "Wheels & Tires",
-      name: "Category",
+    Brakes: {
+      name: "Brakes",
+      subcategory: ["Brake Pads", "Rotors", "Calipers"],
     },
-    {
-      id: "Brakes",
-      type: Type,
-      label: "Brake System",
-      name: "Category",
+    Lighting: {
+      name: "Lighting",
+      subcategory: ["Headlights", "Tail Lights", "Fog Lights"],
     },
-    {
-      id: "Body",
-      type: Type,
-      label: "Body",
-      name: "Category",
-    },
-    {
-      id: "Cool",
-      type: Type,
-      label: "Cooling System",
-      name: "Category",
-    },
-    {
-      id: "Engine",
-      type: Type,
-      label: "Engine",
-      name: "Category",
-    },
-  ];
+  };
 
   const handleChange = (e) => {
     const is_found = categories && categories.includes(e.target.id);
@@ -68,20 +101,64 @@ export default function CategoryDetails({
     console.log(categories);
   };
 
+  // return (
+  //   <div>
+  //     {Details.map((data) => (
+  //       <div key={data.id} className="flex flex-row items-center gap-3">
+  //         <input
+  //           type={data.type}
+  //           name={data.name}
+  //           id={data.id}
+  //           className="cursor-pointer accent-yellow-900 foucs:caret-yellow-400 foucs:outline"
+  //           onChange={handleChange}
+  //         />
+  //         <label className="cursor-pointer px-2" htmlFor={data.id}>
+  //           {data.label}
+  //         </label>
+  //       </div>
+  //     ))}
+  //   </div>
+  // );
+
   return (
     <div>
-      {Details.map((data) => (
+      {/* {Details.map((data) => (
         <div key={data.id} className="flex flex-row items-center gap-3">
           <input
             type={data.type}
             name={data.name}
             id={data.id}
-            className="cursor-pointer accent-yellow-900 foucs:caret-yellow-400 foucs:outline"
+            className="cursor-pointer"
             onChange={handleChange}
           />
           <label className="cursor-pointer px-2" htmlFor={data.id}>
             {data.label}
           </label>
+        </div>
+      ))} */}
+      {Object.entries(Det).map(([key, value]) => (
+        <div key={key} className="border-1 p-2 rounded-md m-2 justify-between">
+          <div
+            className="flex flex-row justify-between"
+            onClick={() => toggleGroup(key)}
+          >
+            <label htmlFor={value.name} className="flex flex-row">
+              {value.name}
+            </label>
+            <span>{openGroups[key] ? <FaAngleUp /> : <FaAngleDown />}</span>
+          </div>
+          {openGroups[key] &&
+            value.subcategory.map((sub, idx) => (
+              <div key={sub} className="flex flex-row gap-2 ">
+                <input
+                  type={inputType}
+                  name="category"
+                  id={sub}
+                  onChange={handleChange}
+                />
+                <label htmlFor={sub}>{sub}</label>
+              </div>
+            ))}
         </div>
       ))}
     </div>
