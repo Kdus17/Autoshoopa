@@ -137,19 +137,22 @@ export default function CategoryDetails({
         </div>
       ))} */}
       {Object.entries(Det).map(([key, value]) => (
-        <div key={key} className="border-1 p-2 rounded-md m-2 justify-between">
+        <div
+          key={key}
+          className="border-1 px-4 py-1 rounded-md m-2 justify-between shadow-md border-gray-200"
+        >
           <div
             className="flex flex-row justify-between"
             onClick={() => toggleGroup(key)}
           >
-            <label htmlFor={value.name} className="flex flex-row">
+            <label htmlFor={value.name} className="flex flex-row font-serif">
               {value.name}
             </label>
             <span>{openGroups[key] ? <FaAngleUp /> : <FaAngleDown />}</span>
           </div>
           {openGroups[key] &&
             value.subcategory.map((sub, idx) => (
-              <div key={sub} className="flex flex-row gap-2 ">
+              <div key={sub} className="flex flex-row gap-2 font-serif px-4">
                 <input
                   type={inputType}
                   name="category"

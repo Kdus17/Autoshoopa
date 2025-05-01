@@ -30,7 +30,7 @@ export default function AddProduct() {
     if(!price){
       newErrors.price = "Price is required";
     }
-    if(!description.trim()){
+    if(!description){
       newErrors.description = "description is required";
     }
     if(!brand){
@@ -112,10 +112,11 @@ export default function AddProduct() {
         <div className=" px-8 py-10 flex text-black rounded-md shadow-lg">
           <div className="flex flex-col gap-8 w-full">
             <div className="flex flex-col gap-2">
-              <span className="font-semibold text-md">Product Name:</span>
+              <span className="font-semibold font-serif text-md">Product Name:</span>
               <input
                 type="text"
-                className="border-1 w-full px-4 py-2 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                className="border-1 w-full px-4 py-2 rounded-xl outline-none shadow-md font-serif border-gray-200
+                 caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400 "
                 placeholder="Product Name"
                 value={product_name}
                 onChange={(e) => {
@@ -127,12 +128,13 @@ export default function AddProduct() {
                     )}
             </div>
             <div className="flex flex-col gap-2">
-              <span className="font-semibold text-md">Product Price:</span>
+              <span className="font-semibold text-md font-serif">Product Price:</span>
               <input
                 type="number"
                 name=""
                 id="price"
-                className="border-1 w-full px-4 py-2 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                className="border-1 w-full px-4 py-2 rounded-xl outline-none shadow-md border-gray-200 font-serif
+                caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 placeholder="Price in Birr"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -142,11 +144,12 @@ export default function AddProduct() {
                     )}
             </div>
             <div className="self-center w-full">
-            <span className="font-semibold text-md">Product descrption:</span>
+            <span className="font-semibold text-md font-serif">Product descrption:</span>
               <textarea
                 name=""
                 id="descrption"
-                className="border-1 w-[100%] h-32 px-4 py-2 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                className="border-1 w-[100%] h-32 px-4 py-2 rounded- outline-none shadow-md border-gray-200 font-serif
+                caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 placeholder="Enter Product Descrption"
                 value={description}
                 onChange={(e) => {
@@ -160,7 +163,7 @@ export default function AddProduct() {
             </div>
             <div className="flex flex-col w-full self-center">
               <div className="flex flex-col gap-2">
-                <span className="text-lg font-semibold">Categories</span>
+                <span className="text-lg font-semibold font-serif">Categories</span>
                 <CategoryDetails
                   inputType="radio"
                   className="items-center"
@@ -172,7 +175,7 @@ export default function AddProduct() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <span className="text-lg font-semibold">Brands</span>
+                <span className="text-lg font-semibold font-serif">Brands</span>
                 <BrandDetails inputType="radio" setBrand={setBrand} />
                 {error.brand && (
                   <p className="text-red-500 text-sm mt-1 font-mono">{error.brand}</p>
@@ -181,12 +184,13 @@ export default function AddProduct() {
             </div>
             <div className="grid grid-cols md:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <span className="font-semibold text-xl">Year:</span>
+              <span className="font-semibold text-xl font-serif">Year:</span>
               <input
                 type="number"
                 name=""
                 id="Year"
-                className="border-1 w-full px-4 py-2 border-gray-400 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                className="border-1 w-full px-4 py-2 border-gray-200 rounded-sm outline-none shadow-md
+                  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 value={year}
                 placeholder={2000}
                 min={2000}
@@ -194,11 +198,12 @@ export default function AddProduct() {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <span className="font-semibold text-xl">Quantity:</span>
+              <span className="font-semibold text-xl font-serif">Quantity:</span>
               <input
                 type="number"
                 id="quantity"
-                className="border-1 w-full px-4 py-2 border-gray-400 rounded-sm outline-none  caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                className="border-1 w-full px-4 py-2 border-gray-200 rounded-sm outline-none shadow-md
+                 caret-yellow-500 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-400"
                 value={quantity}
                 placeholder={1}
                 min={1}
@@ -206,15 +211,16 @@ export default function AddProduct() {
               />
             </div>
             </div>
-            <div className="flex flex-row gap-5 self-center">
+            <div className="flex flex-row gap-5 self-center items-center">
               <label
-                className="block text-xl font-semibold text-gray-900 dark:text-white"
+                className="block text-xl font-semibold text-gray-900 dark:text-white font-serif"
                 htmlFor="photo"
               >
                 Upload Photo:
               </label>
               <input
-                className="w-50 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 px-2 py-1"
+                className="w-50 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 px-2 py-2 shadow-md 
+                hover:bg-yellow-400"
                 id="photo"
                 type="file"
                 name="photo"
@@ -231,8 +237,8 @@ export default function AddProduct() {
             <input
               type="submit"
               value="Submit"
-              className="border-1 w-full rounded-md px-2 py-2 mt-2 bg-yellow-400
-                        font-semibold border-gray-400 self-center hover:bg-yellow-500"
+              className="border-1 w-full rounded-md px-2 py-2 mt-2 bg-yellow-400 shadow-md
+                        font-semibold border-gray-100 self-center hover:bg-yellow-500 transition duration-300 ease-in-out  hover:-translate-y-1 font-serif"
               placeholder="Enter your product description"
               onClick={handleSubmit}
             />
