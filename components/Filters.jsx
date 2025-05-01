@@ -12,11 +12,11 @@ export default function Filters({setBrands, setCategories,categories, brands, se
                     <div className="flex flex-row gap-8 border-b pb-2">
                         <p className="text-3xl font-bold ">Product categories</p>
                     </div>
-                    <CategoryDetails setCategories={setCategories} categories={categories}/>
+                    <CategoryDetails setCategories={setCategories} categories={categories} inputType="checkbox"/>
                     <div className="flex flex-row gap-8 border-b pb-2 ">
                         <p className="text-3xl font-bold ">Brand</p>
                     </div>
-                    <BrandDetails setBrands={setBrands} brands={brands}/>
+                    <BrandDetails setBrands={setBrands} brands={brands} inputType="checkbox"/>
                     <div className="flex flex-row gap-8 border-b pb-2">
                         <p className="text-xl font-bold ">Price Range(Birr)</p>
                     </div>

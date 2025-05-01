@@ -158,7 +158,7 @@ export default function AddProduct() {
                     )}
               </textarea>
             </div>
-            <div className="flex flex-row self-center">
+            <div className="flex flex-col w-full self-center">
               <div className="flex flex-col gap-2">
                 <span className="text-lg font-semibold">Categories</span>
                 <CategoryDetails

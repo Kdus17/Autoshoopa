@@ -69,22 +69,24 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="flex flex-row items-center  font-mono">
-        <Link
-          href="/login"
-          className="hover:text-yellow-400 flex flex-row gap-2
+      <div className="flex flex-row gap-6 items-center font-mono">
+        <div className="flex flex-row">
+          <Link
+            href="/login"
+            className="hover:text-yellow-400 flex flex-row gap-2
          transition delay-150 duration-300 ease-in-out hover:-translate-y-1 text-sm md:text-md"
-        >
-          <IoPersonCircleSharp className="text-sm md:text-2xl" />
-          Login/
-        </Link>
-        <Link
-          href="/register"
-          className="hover:text-yellow-400 flex flex-row gap-2
+          >
+            <IoPersonCircleSharp className="text-2xl" />
+            Login/
+          </Link>
+          <Link
+            href="/register"
+            className="hover:text-yellow-400 flex flex-row gap-2
          transition delay-150 duration-300 ease-in-out hover:-translate-y-1 text-sm md:text-md"
-        >
-          Register
-        </Link>
+          >
+            Register
+          </Link>
+        </div>
         <button
           onClick={() => setOpen(!open)}
           className="flex z-100 flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
