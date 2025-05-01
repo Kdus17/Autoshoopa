@@ -14,6 +14,7 @@ export default function HomePage() {
   const [year2, setYear2] = useState();
   const [minimum, setMinimum] = useState(0);
   const [maximum, setMaximum] = useState(100000);
+  const [apply, setApply] = useState(0);
   let base_url = "https://ecommerce-backend-er55.onrender.com/api/products/";
 
   useEffect(() => {
@@ -45,7 +46,7 @@ export default function HomePage() {
       .then((data) => {
         setProducts(data.products);
       });
-  }, [brands, categories, minimum, maximum, year, year2]);
+  }, [apply]);
 
   return (
     <div className="">
@@ -66,6 +67,8 @@ export default function HomePage() {
             setYear2={setYear2}
             setMinimum={setMinimum}
             setMaximum={setMaximum}
+            apply={apply}
+            setApply={setApply}
           />
         </div>
         <div>

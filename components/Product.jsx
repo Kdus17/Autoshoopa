@@ -19,8 +19,8 @@ export default function Product({product}) {
     }
 
     return (
-        <div className="w-full px-2 text-black">
-            <div className="flex flex-col p-4  border border-gray-100 bg-white rounded-t-md font-serif">
+        <div className="w-full text-black">
+            <div className="flex flex-col p-4  border border-gray-100 bg-white  font-serif">
                 <div  className="relative self-center w-[150px] h-[150px] border-b">
                 <Image src={product.image} alt="Test Image" fill className="object-contain"sizes="(max-width: 768px) 100vw, 150px"/>
                 </div>
