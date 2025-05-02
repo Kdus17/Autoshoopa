@@ -9,7 +9,7 @@ export default function Track() {
     e.preventDefault();
     setShow(true);
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACK_URL}api/orders/` + email
+      `https://ecommerce-backend-er55.onrender.com/api/orders/` + email
     );
     const json_response = await response.json();
     if (json_response) {
