@@ -34,7 +34,7 @@ export default function CheckOut() {
       body: JSON.stringify(products),
     };
     const response = await fetch(
-      "https://ecommerce-backend-er55.onrender.com/api/orders/create-checkout-session",
+      `${process.env.NEXT_PUBLIC_BACK_URL}api/orders/create-checkout-session`,
       post_options
     );
     const json_response = await response.json();

@@ -1,14 +1,6 @@
 import { MdOutlineDeleteOutline } from "react-icons/md";
 
 export default function CheckOut() {
-  // const context = useCartContext();
-  // console.log(context);
-  // {
-  //   Array.from(context.state).map(([key, value]) =>
-  //     console.log(key, value, "iterator")
-  //   );
-  // }
-
   const items = [
     {
       product_name: "something",

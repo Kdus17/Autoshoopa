@@ -82,7 +82,7 @@ export default function AddProduct() {
     };
 
     const response = await fetch(
-      "https://ecommerce-backend-er55.onrender.com/api/products/add",
+      `${process.env.NEXT_PUBLIC_BACK_URL}api/products/add`,
       post_options
     );
     if (response.ok) {

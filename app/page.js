@@ -4,6 +4,8 @@ import { useCartContext } from "@/hooks/useCartContext";
 import ProductList from "@/components/ProductList";
 import ProductExplore from "@/components/ProductExplore";
 import LoadingScreen from "@/components/LoadingScreen";
+import dotenv from "dotenv";
+dotenv.config();
 
 export default function Home() {
   const [load, setLoad] = useState(true);
@@ -13,7 +15,8 @@ export default function Home() {
   const [latest_products, setLatestProducts] = useState([]);
   const [trending_products, setTrendingProducts] = useState([]);
   useEffect(() => {
-    fetch("https://ecommerce-backend-er55.onrender.com/api/products/latest")
+    console.log(process.env.BACK_URL);
+    fetch(`${process.env.NEXT_PUBLIC_BACK_URL}api/products/latest`)
       .then((response) => {
         return response.json();
       })

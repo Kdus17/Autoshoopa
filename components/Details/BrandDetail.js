@@ -9,7 +9,6 @@ export default function BrandDetails({
   setBrand,
 }) {
   const Type = inputType || "checkbox";
-  // const Details = [
   //   {
   //     id: "Audi",
   //     type: Type,
@@ -92,22 +91,6 @@ export default function BrandDetails({
   };
 
   return (
-    // <div>
-    //   {Details.map((data) => (
-    //     <div key={data.id} className="flex flex-row items-center">
-    //       <input
-    //         type={data.type}
-    //         id={data.id}
-    //         name={data.name}
-    //         className="cursor-pointer"
-    //         onChange={handleUpdate}
-    //       />
-    //       <label className="cursor-pointer px-2" htmlFor={data.id}>
-    //         {data.label}
-    //       </label>
-    //     </div>
-    //   ))}
-    // </div>
     <div>
       {Object.entries(Det).map(([key, value]) => (
         <div

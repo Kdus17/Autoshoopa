@@ -7,12 +7,6 @@ export default function SideBar() {
   return (
     <div className="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg  pt-24 px-4">
       <nav className="flex flex-col gap-4">
-        {/* [
-          { href: "/MyOrders", label: "My Orders" },
-          { href: "/shop", label: "Products" },
-          { href: "/contact", label: "Contact" },
-          { href: "/add", label: "Add Product" },
-        ] */}
         <Link
           key="/MyOrders"
           href="/MyOrders"
