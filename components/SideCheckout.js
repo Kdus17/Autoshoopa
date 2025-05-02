@@ -21,6 +21,23 @@ export default function SideCheckout() {
       },
     });
   };
+  const handleAdd = (product_Id) => {
+    context.dispatch({
+      type: "ADD_PRODUCT",
+      payload: {
+        product_Id,
+      },
+    });
+  };
+  const handleDec = (product_Id) => {
+    context.dispatch({
+      type: "DEC_PRODUCT",
+      payload: {
+        product_Id,
+      },
+    });
+  };
+
   const handleSubmit = async () => {
     const products = {};
     for (const [key, value] of context.state) {
@@ -64,6 +81,21 @@ export default function SideCheckout() {
               <p className="flex flex-col justify-center">
                 {value[0]} * {value[1]} = ${value[0] * value[1]} <br />
               </p>
+              <div className="flex flex-row gap-1">
+                <button
+                  className="bg-red-400 px-2 rounded-md cursor-pointer"
+                  disabled={!(value[0] >= 2)}
+                  onClick={() => handleDec(key)}
+                >
+                  -
+                </button>
+                <button
+                  className="bg-green-400 px-2 rounded-md cursor-pointer"
+                  onClick={() => handleAdd(key)}
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
         ))}
