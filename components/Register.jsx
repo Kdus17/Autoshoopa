@@ -46,20 +46,24 @@ export default function register(){
             <label htmlFor="username" className="text-xl mt-4">username:</label>
             <input type="text" id="username" value={username}
                    onChange={(e)=>setUser(e.target.value)}
-                   className="border border-gray-200 px-3 py-2 outline-none rounded-md"/>
+                   className="border border-gray-200 focus:ring-2 focus:ring-yellow-400 shadow-md
+                    px-3 py-2 outline-none rounded-md"/>
 
             <label htmlFor="email" className="text-xl mt-4">Email:</label>
             <input type="text" id="email" value={email}
-                   className="border border-gray-200 px-3 py-2 outline-none rounded-md"
+                   className="border border-gray-200 focus:ring-2 focus:ring-yellow-400 shadow-md
+                    px-3 py-2 outline-none rounded-md"
                    onChange={(e) => setEmail(e.target.value)}/>
 
             <label htmlFor="password" className="mt-4 text-xl">Password:</label>
             <input type="password" id="password"
-                   className="border border-gray-200 outline-none px-3 py-2 rounded-md"
+                   className="border border-gray-200 focus:ring-2 focus:ring-yellow-400 shadow-md 
+                   outline-none px-3 py-2 rounded-md"
                    value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-            <button disabled={false} className="px-3 py-2 rounded-md border border-gray-100 w-fit mt-4 bg-lime-200 text-gray-600 cursor-pointer self-center" onClick={handleChange}>Register</button>
-            <p className="self-center py-3"> Already have an account?<Link href="/login" className="text-yellow-500">Login</Link></p>
+            <button disabled={false} className="px-3 py-2 rounded-md border border-gray-100 w-fit mt-4 bg-yellow-400 
+            transition duration-300 hover:-translate-y-1 hover:bg-yellow-500 shadow-md cursor-pointer self-center" onClick={handleChange}>Register</button>
+            <p className="self-center py-3"> Already have an account?<Link href="/login" className="text-yellow-500 ">Login</Link></p>
             </div>
         </form>
         </div>

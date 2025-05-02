@@ -29,12 +29,13 @@ export default function Track() {
         <input
           type="text"
           placeholder="Email used for the order"
-          className="border-1 border-black px-5 rounded-md py-4"
+          className="border-1 focus:ring-yellow-400 focus:ring-2 px-5 rounded-md py-4 outline-none
+          w-2/3 self-center border-gray-200 shadow-md focus:border-yellow-400 caret-yellow-400"
           value={email}
           onChange={(e) => setEmail(e.target.value.trim())}
         />
         <button
-          className="mt-10 bg-yellow-400 hover:bg-black text-white h-13 rounded-md text-start px-10 uppercase font-bold
+          className="mt-10 bg-yellow-400 hover:bg-yellow-500 border-1 border-gray-200 w-2/3 self-center text-white h-13 rounded-md text-start px-10 uppercase font-bold
       transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
           onClick={handleSubmit}
         >

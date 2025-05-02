@@ -41,7 +41,7 @@ export default function Contact() {
           <p>autoshoppa@gmail.com</p>
         </div>
       </div>
-      <div className="mt-15 flex flex-col gap-4 items-center border-1 w-2/3 md:w-1/2 rounded-md shadow-xl self-center bg-white">
+      <div className="mt-15 flex flex-col gap-4 items-center border-1 border-gray-200 w-2/3 md:w-1/2 rounded-md shadow-xl self-center bg-white">
         <p className="text-yellow-400">Leave Your Message.</p>
         <h1 className="text-4xl font-bold text-center">
           We would love to

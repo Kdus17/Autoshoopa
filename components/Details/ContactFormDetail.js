@@ -106,7 +106,7 @@ export default function ContactFormDetail() {
             htmlFor="name"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Your Name
+            Your Name:
           </label>
           <input
             type="text"
@@ -114,7 +114,8 @@ export default function ContactFormDetail() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
+            className="w-full px-4 py-2 border-1 border-gray-200  caret-yellow-400 outline-none shadow-md
+             focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
             placeholder="Enter your name"
           />
           {errors.name && (
@@ -127,7 +128,7 @@ export default function ContactFormDetail() {
             htmlFor="email"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Your Email
+            Your Email:
           </label>
           <input
             type="email"
@@ -135,7 +136,8 @@ export default function ContactFormDetail() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
+            className="w-full px-4 py-2 border-1 border-gray-200  caret-yellow-400 outline-none shadow-md
+            focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
             placeholder="Enter your email"
           />
           {errors.email && (
@@ -149,7 +151,7 @@ export default function ContactFormDetail() {
           htmlFor="phone"
           className="block text-sm font-medium text-gray-700 mb-1"
         >
-          Phone Number
+          Phone Number:
         </label>
         <input
           type="tel"
@@ -157,7 +159,8 @@ export default function ContactFormDetail() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
+          className="w-full px-4 py-2 border-1 border-gray-200 shadow-md caret-yellow-400 
+          outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
           placeholder="Enter your phone number"
         />
         {errors.phone && (
@@ -170,7 +173,7 @@ export default function ContactFormDetail() {
           htmlFor="message"
           className="block text-sm font-medium text-gray-700 mb-1"
         >
-          Your Message
+          Your Message:
         </label>
         <textarea
           id="message"
@@ -178,7 +181,8 @@ export default function ContactFormDetail() {
           value={formData.message}
           onChange={handleChange}
           rows="4"
-          className="w-full px-4 py-2 border-1  caret-yellow-400 outline-none focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
+          className="w-full px-4 py-2 border-1 border-gray-200 caret-yellow-400 outline-none shadow-md
+          focus:border-transparent focus:ring-2 focus:ring-yellow-400 rounded-md"
           placeholder="Enter your message"
         />
         {errors.message && (
@@ -186,11 +190,13 @@ export default function ContactFormDetail() {
         )}
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-10">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-yellow-400 px-8 py-3 rounded-md font-semibold hover:bg-yellow-500 "
+          className="bg-yellow-400 px-8 py-3 rounded-md shadow-lg 
+          transition duration-300 hover:-translate-y-1
+          font-semibold hover:bg-yellow-500 "
         >
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>

@@ -52,17 +52,22 @@ export default function Login (){
 
             <label htmlFor="email" className="text-xl mt-4">Email:</label>
             <input type="text" id="email" value={email}
-                   className="border border-gray-200 px-3 py-2 outline-none rounded-md w-full"
+                   className="border border-gray-200 focus:ring-2 focus:ring-yellow-400 shadow-md
+                   px-3 py-2 outline-none rounded-md w-full"
                    onChange={(e) => setEmail(e.target.value)}/>
 
 
             <label htmlFor="password" className="mt-4 text-xl">Password:</label>
             <input type="password" id="password"
-                   className="border border-gray-200 outline-none px-3 py-2 rounded-md w-full"
+                   className="border border-gray-200 focus:ring-2 focus:ring-yellow-400 shadow-md
+                    outline-none px-3 py-2 rounded-md w-full"
                    value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-            <button disabled={false} className="px-3 py-2 rounded-md border border-gray-100 w-fit mt-4 bg-lime-200 text-gray-600 cursor-pointer self-center" onClick={handleSubmitForm}>Log In</button>
-            {/*{error && <p className="py-4 text-red-300">{error}</p>}*/}
+            <button disabled={loading} className="px-3 py-2 rounded-md border border-gray-100 shadow-md
+            w-fit mt-4 bg-yellow-400 hover:bg-yellow-500  cursor-pointer self-center" onClick={handleSubmitForm}>
+                {loading ? <div>Logging in...</div>:<div>Login</div>}
+                </button>
+            
            <p className="self-center py-3"> Don't have an account?<Link href="/register" className="text-yellow-500">Register</Link></p></div>
            </div>
         </form>

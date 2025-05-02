@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { GiGears } from "react-icons/gi";
+import { FaGear } from "react-icons/fa6";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { useCartContext } from "@/hooks/useCartContext";
 import Link from "next/link";
@@ -9,11 +9,16 @@ import { AuthContext } from "@/context/AuthContext";
 import { MdShoppingCart } from "react-icons/md";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import SideCheckout from "@/components/SideCheckout";
+import { TbLogout2 } from "react-icons/tb";
+import SideBar from "./SideBar";
+import { CiMenuBurger } from "react-icons/ci";
 
 export default function Navbar() {
+  const [clicked, setCliked] = useState(false);
   const context = useCartContext();
   const auth_context = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  const [nav, setNav] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("autoshoppa-token");
@@ -25,17 +30,26 @@ export default function Navbar() {
       className="flex flex-row w-full font-serif justify-between shadow-lg text-black py-2 items-center max-h-3xl sticky top-0 z-50 bg-white"
       id="navbar"
     >
-      <div
-        className="hover:text-yellow-400 text-5xl md:text-6xl  
-       transition duration-300 ease-in-out hover:-translate-y-1"
-      >
-        {" "}
-        <Link href={"/"} className="flex flex-row">
-          <GiGears />
-          <span className="text-3xl self-center hidden md:block cursor-pointer">
-            AutoShoppa
-          </span>
-        </Link>
+      <div className=" text-5xl md:text-6xl gap-6 items-center relative flex flex-row">
+        <span
+          onClick={() => {
+            setNav(!nav);
+            setCliked(true);
+          }}
+          className={`z-60 text-black inline-block px-4 transform transition-transform duration-600 text-4xl ${
+            nav ? "rotate-90" : "rotate-0"
+          }`}
+        >
+          {clicked ? <FaGear /> : <CiMenuBurger />}
+        </span>
+        {nav && <SideBar />}{" "}
+        {
+          <Link href={"/"} className="flex flex-row">
+            <span className="text-3xl self-center hidden md:block cursor-pointer">
+              AutoShoppa
+            </span>
+          </Link>
+        }
       </div>
 
       <div className="flex flex-row  gap-6 items-center space-x-4 ">
@@ -91,14 +105,21 @@ export default function Navbar() {
         )}
         {auth_context.state.token && (
           <div>
-            <Link href="/" onClick={() => handleLogout()}>
+            <Link
+              href="/"
+              onClick={() => handleLogout()}
+              className="flex flex-row items-center font-serif text-lg md:text-xl
+               transition duration-300 hover:-translate-x-1 hover:text-yellow-400"
+            >
+              <TbLogout2 />
               Logout
             </Link>
           </div>
         )}
         <button
           onClick={() => setOpen(!open)}
-          className="flex z-100 flex-row items-center bg-yellow-600 text-white px-4 py-2 rounded "
+          className="flex z-100 flex-row items-center bg-yellow-600 
+          transition duration-300 hover:bg-yellow-400  text-white px-4 py-2 rounded "
         >
           {open ? <MdRemoveShoppingCart /> : <MdShoppingCart />}{" "}
           {context.state.size}
