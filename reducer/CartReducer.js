@@ -33,7 +33,6 @@ export const CartReducer = (state, action) => {
         d_cart.get(action.payload.product_Id)[1],
         d_cart.get(action.payload.product_Id)[2],
       ];
-      console(action.payload.product_Id);
       d_cart.set(action.payload.product_Id, dec_cart);
 
       console.log("here");
