@@ -70,7 +70,7 @@ export default function SearchBar() {
             const q = searchQuery.toLocaleLowerCase().trim();
             const filtered = allProducts.filter(product => 
                 product.product_name.toLowerCase().includes(q)
-            )      .sort((a, b) =>
+            ).sort((a, b) =>
                 (b.product_name.toLowerCase().startsWith(q) ? 1 : 0)
                 - (a.product_name.toLowerCase().startsWith(q) ? 1 : 0)
               );

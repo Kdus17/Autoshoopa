@@ -163,7 +163,7 @@ export default function AddProduct() {
             </div>
             <div className="flex flex-col w-full self-center">
               <div className="flex flex-col gap-2">
-                <span className="text-lg font-semibold font-serif">Categories</span>
+                <span className="text-lg font-semibold font-serif border-b-4 border-yellow-400">Categories</span>
                 <CategoryDetails
                   inputType="radio"
                   className="items-center"
@@ -175,7 +175,7 @@ export default function AddProduct() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <span className="text-lg font-semibold font-serif">Brands</span>
+                <span className="text-lg font-semibold font-serif  border-b-4 border-yellow-400">Brands</span>
                 <BrandDetails inputType="radio" setBrand={setBrand} />
                 {error.brand && (
                   <p className="text-red-500 text-sm mt-1 font-mono">{error.brand}</p>
@@ -184,7 +184,7 @@ export default function AddProduct() {
             </div>
             <div className="grid grid-cols md:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <span className="font-semibold text-xl font-serif">Year:</span>
+              <label htmlFor="Year" className="font-semibold text-xl font-serif">Year:</label>
               <input
                 type="number"
                 name=""
@@ -198,7 +198,7 @@ export default function AddProduct() {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <span className="font-semibold text-xl font-serif">Quantity:</span>
+              <label htmlFor="quantity" className="font-semibold text-xl font-serif">Quantity:</label>
               <input
                 type="number"
                 id="quantity"

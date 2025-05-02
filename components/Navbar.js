@@ -36,16 +36,20 @@ export default function Navbar() {
             setNav(!nav);
             setCliked(true);
           }}
-          className={`z-60 text-black inline-block px-4 transform transition-transform duration-600 text-4xl ${
-            nav ? "rotate-90" : "rotate-0"
-          }`}
+          className={`z-60 text-black inline-block px-4 hover:-translate-y-1 hover:text-yellow-400
+             transform transition-transform duration-600 text-4xl ${
+               nav ? "rotate-90" : "rotate-0"
+             }`}
         >
           {clicked ? <FaGear /> : <CiMenuBurger />}
         </span>
         {nav && <SideBar />}{" "}
         {
           <Link href={"/"} className="flex flex-row">
-            <span className="text-3xl self-center hidden md:block cursor-pointer">
+            <span
+              className="text-2xl self-center hidden md:block cursor-pointer 
+            transition duration-300 hover:-translate-y-1 hover:text-yellow-400"
+            >
               AutoShoppa
             </span>
           </Link>
@@ -74,13 +78,15 @@ export default function Navbar() {
         >
           Contact
         </Link>
-        <Link
-          href="/add"
-          className="hover:text-yellow-400
+        {auth_context.state.token && (
+          <Link
+            href="/add"
+            className="hover:text-yellow-400
          transition duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
-        >
-          Add Product
-        </Link>
+          >
+            Add Product
+          </Link>
+        )}
       </div>
 
       <div className="flex flex-row gap-6 items-center font-mono">
