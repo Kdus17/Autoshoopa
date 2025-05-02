@@ -8,7 +8,7 @@ export default function Filters({setBrands, setCategories,categories, brands, se
         <div className="flex flex-col text-black">
 
             <div className="flex flex-row px-10  gap-16">
-                <div className="flex flex-col gap-4 border-1 py-10 px-10 rounded-md w-100">
+                <div className="flex flex-col gap-4 border-1 border-gray-200 shadow-md py-10 px-10 rounded-md w-100">
                     <div className="flex flex-row gap-8 border-b pb-2">
                         <p className="text-3xl font-bold ">Product categories</p>
                     </div>
