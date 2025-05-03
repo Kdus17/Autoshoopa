@@ -70,7 +70,6 @@ export default function AddProduct() {
       formData.append("photo", selectedFile);
     }
 
-    console.log("token is ", context.state.token);
     const post_options = {
       method: "POST",
       headers: {
@@ -80,6 +79,7 @@ export default function AddProduct() {
       },
       body: formData,
     };
+    console.log(context.state.token)
 
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BACK_URL}api/products/add`,
