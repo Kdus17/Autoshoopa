@@ -69,13 +69,12 @@ export default function AddProduct() {
     if (selectedFile) {
       formData.append("photo", selectedFile);
     }
-
+    const token = localStorage.getItem("autoshoppa-token");
+    const cleanedToken = token.replace(/^"|"$/g, "");
     const post_options = {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${localStorage
-          .getItem("autoshoppa-token")
-          .slice(1, -1)}`,
+        Authorization: `Bearer ${cleanedToken}`,
       },
       body: formData,
     };
