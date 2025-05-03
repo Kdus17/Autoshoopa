@@ -22,7 +22,7 @@ export default function register(){
                 username, email, password
             })
         }
-        const response = await fetch(`http://localhost:8080/api/auth/register`, post_options)
+        const response = await fetch(`https://ecommerce-backend-er55.onrender.com/api/auth/register`, post_options)
         const json_response = await response.json();
         if(response.ok){
             context.dispatch({

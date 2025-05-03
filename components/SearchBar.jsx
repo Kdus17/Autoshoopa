@@ -57,7 +57,7 @@ export default function SearchBar() {
     const categoryRef = useRef(null);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/api/products/`)
+        fetch(`https://ecommerce-backend-er55.onrender.com/api/products/`)
             .then(response => response.json())
             .then(data => {
                 setAllProducts(data.products);
