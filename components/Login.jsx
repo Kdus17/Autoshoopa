@@ -27,7 +27,7 @@ export default function Login (){
                 email, password
             })
         }
-        const response = await fetch(`https://ecommerce-backend-er55.onrender.com/api/auth/login`, post_options)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_URL}api/auth/login`, post_options)
         const json_response = await response.json()
         setIsLoading(false);
         if (response.ok){

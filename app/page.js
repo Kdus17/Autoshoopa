@@ -16,7 +16,7 @@ export default function Home() {
   const [trending_products, setTrendingProducts] = useState([]);
   useEffect(() => {
     console.log(process.env.BACK_URL);
-    fetch(`https://ecommerce-backend-er55.onrender.com/api/products/latest`)
+    fetch(`${process.env.NEXT_PUBLIC_BACK_URL}api/products/latest`)
       .then((response) => {
         return response.json();
       })
@@ -27,7 +27,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    fetch("https://ecommerce-backend-er55.onrender.com/api/products/trending")
+    fetch(`${process.env.NEXT_PUBLIC_BACK_URL}api/products/trending`)
       .then((response) => {
         return response.json();
       })
