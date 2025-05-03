@@ -3,6 +3,7 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function OrderConformation() {
   const searchParams = useSearchParams();
