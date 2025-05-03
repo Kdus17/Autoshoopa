@@ -82,7 +82,7 @@ export default function AddProduct() {
     };
 
     const response = await fetch(
-      `http://localhost:8080/api/products/add`,
+      `${process.env.NEXT_PUBLIC_BACK_URL}api/products/add`,
       post_options
     );
     if (response.ok) {
