@@ -16,7 +16,7 @@ export default function Home() {
   const [trending_products, setTrendingProducts] = useState([]);
   useEffect(() => {
     console.log(process.env.BACK_URL);
-    fetch(`${process.env.NEXT_PUBLIC_BACK_URL}api/products/latest`)
+    fetch(`https://ecommerce-backend-er55.onrender.com/api/products/latest`)
       .then((response) => {
         return response.json();
       })

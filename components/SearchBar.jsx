@@ -57,7 +57,7 @@ export default function SearchBar() {
     const categoryRef = useRef(null);
 
     useEffect(() => {
-        fetch(`https://ecommerce-backend-er55.onrender.com/api/products/`)
+        fetch(`http://localhost:8080/api/products/`)
             .then(response => response.json())
             .then(data => {
                 setAllProducts(data.products);
@@ -68,12 +68,15 @@ export default function SearchBar() {
     useEffect(() => {
         if (searchQuery.trim()) {
             const q = searchQuery.toLocaleLowerCase().trim();
-            const filtered = allProducts.filter(product => 
-                product.product_name.toLowerCase().includes(q)
-            ).sort((a, b) =>
-                (b.product_name.toLowerCase().startsWith(q) ? 1 : 0)
-                - (a.product_name.toLowerCase().startsWith(q) ? 1 : 0)
-              );
+            const filtered = allProducts
+                .filter(product => product.quantity > 0)
+                .filter(product => 
+                    product.product_name.toLowerCase().includes(q)
+                )
+                .sort((a, b) =>
+                    (b.product_name.toLowerCase().startsWith(q) ? 1 : 0)
+                    - (a.product_name.toLowerCase().startsWith(q) ? 1 : 0)
+                );
             setFilteredProducts(filtered);
             setShowDropdown(true);
         } else {

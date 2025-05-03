@@ -1,18 +1,3 @@
-const data = [
-  {
-    id: 101,
-    name: "Processing",
-  },
-  {
-    id: 102,
-    name: "Shipped",
-  },
-  {
-    id: 103,
-    name: "Delivered",
-  },
-];
-
 export default function TrackOrder() {
   return (
     <div className="flex flex-col text-black text-center gap-12 ">

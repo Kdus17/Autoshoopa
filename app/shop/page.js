@@ -15,7 +15,7 @@ export default function HomePage() {
   const [minimum, setMinimum] = useState(0);
   const [maximum, setMaximum] = useState(100000);
   const [apply, setApply] = useState(0);
-  let base_url = `${process.env.NEXT_PUBLIC_BACK_URL}api/products/`;
+  let base_url = `https://ecommerce-backend-er55.onrender.com/api/products/`;
 
   useEffect(() => {
     console.log("Use effect has ran", brands, categories);
