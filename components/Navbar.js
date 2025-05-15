@@ -22,6 +22,7 @@ export default function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("autoshoppa-token");
+    localStorage.removeItem("username");
     auth_context.dispatch({ type: "LOGOUT" });
   };
 
@@ -30,7 +31,7 @@ export default function Navbar() {
       className="flex flex-row w-full font-serif justify-between shadow-lg text-black py-2 items-center max-h-3xl sticky top-0 z-50 bg-white"
       id="navbar"
     >
-      <div className=" text-5xl md:text-6xl gap-6 items-center relative flex flex-row">
+      <div className=" text-5xl md:text-6xl gap-2 items-center relative flex flex-row">
         <span
           onClick={() => {
             setNav(!nav);
@@ -47,8 +48,8 @@ export default function Navbar() {
         {
           <Link href={"/"} className="flex flex-row">
             <span
-              className="text-2xl self-center hidden md:block cursor-pointer 
-            transition duration-300 hover:-translate-y-1 hover:text-yellow-400"
+              className="text-2xl self-center  cursor-pointer 
+            z-100 transition duration-300 hover:-translate-y-1 hover:text-yellow-400"
             >
               AutoShoppa
             </span>
@@ -57,13 +58,13 @@ export default function Navbar() {
       </div>
 
       <div className="flex flex-row  gap-6 items-center space-x-4 ">
-        <Link
+        {/* <Link
           href="/MyOrders"
           className="hover:text-yellow-400
         transition duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
         >
           My Orders
-        </Link>
+        </Link> */}
         <Link
           href="/shop"
           className="hover:text-yellow-400
@@ -78,15 +79,14 @@ export default function Navbar() {
         >
           Contact
         </Link>
-        {auth_context.state.token && (
-          <Link
-            href="/add"
-            className="hover:text-yellow-400
+
+        <Link
+          href="/add"
+          className="hover:text-yellow-400
          transition duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
-          >
-            Add Product
-          </Link>
-        )}
+        >
+          Add Product
+        </Link>
       </div>
 
       <div className="flex flex-row gap-6 items-center font-mono">
@@ -110,7 +110,8 @@ export default function Navbar() {
           </div>
         )}
         {auth_context.state.token && (
-          <div>
+          <div className="flex items-center">
+            {localStorage.getItem("username")}
             <Link
               href="/"
               onClick={() => handleLogout()}
