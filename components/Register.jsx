@@ -30,6 +30,7 @@ export default function register(){
                 payload: json_response.token,
             })
             localStorage.setItem("autoshoppa-token", json_response.token);
+            localStorage.setItem("username",json_response.username);
             router.push("/")
             console.log(json_response)
         }
@@ -40,7 +41,7 @@ export default function register(){
     return (
         <div>
         <form action="" className="p-4 border border-gray-100 rounded-md text-black flex flex-col h-screen justify-center font-mono items-center bg-white" onSubmit={handleChange}>
-           <div className="flex flex-col w-1/3 px-10 py-10 rounded-md shadow-lg">
+           <div className="flex flex-col w-3/3 md:w-2/3 px-10 py-10 rounded-md shadow-lg">
             <h3 className="text-2xl text-center font-semibold "> Register</h3>
 
             <label htmlFor="username" className="text-xl mt-4">username:</label>
