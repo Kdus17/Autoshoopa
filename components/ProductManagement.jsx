@@ -122,6 +122,7 @@ export default function ProductManagement() {
     formData.append("imageview", imageview);
     formData.append("quantity", quantity);
     formData.append("seller", localStorage.getItem("username"));
+    formData.append("seller_email", localStorage.getItem("email"));
 
     if (selectedFile) {
       formData.append("photo", selectedFile);
@@ -173,10 +174,10 @@ export default function ProductManagement() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 min-h-screen">
+    <div className="max-w-9xl flex justify-center mx-auto px-4 py-8 min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {editingProduct && (
-          <div>
+          <div className="w-full">
             <h2 className="text-2xl font-bold mb-4">Edit Product</h2>
             <form
               action=""
@@ -329,11 +330,12 @@ export default function ProductManagement() {
           </div>
         )}
 
-        <div>
+        <div className="w-3/3">
           <h2 className="text-2xl font-bold mb-4">Your Products</h2>
           <div className="bg-white rounded-lg shadow-lg p-6">
             {products.length === 0 ? (
-              <p className="text-gray-500 text-center">No products found</p>
+              <p className="text-gray-500 text-center">No products found {<a href="manage">Add</a>}</p>
+              
             ) : (
               <div className="space-y-4">
                 {products.map((product) => (
