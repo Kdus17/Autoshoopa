@@ -27,7 +27,7 @@ export default function register(){
         if(response.ok){
             context.dispatch({
                 type:'LOGIN',
-                payload: json_response.token,
+                payload: json_response,
             })
             localStorage.setItem("autoshoppa-token", json_response.token);
             localStorage.setItem("username",json_response.username);
