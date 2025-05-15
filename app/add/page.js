@@ -12,7 +12,7 @@ export default function AddProductPage() {
   console.log("Hi");
   useEffect(() => {
     const checkAuth = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Example delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log(
         "Authentication token in the context is ",
         auth_context.state.token

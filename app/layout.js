@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <AuthContextProvider>
           <CartProvider>
             <Navbar />
-            <SearchBar />
+            {/* <SearchBar /> */}
             {children}
             <Footer />
           </CartProvider>

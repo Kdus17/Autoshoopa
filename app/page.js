@@ -5,6 +5,7 @@ import ProductList from "@/components/ProductList";
 import ProductExplore from "@/components/ProductExplore";
 import LoadingScreen from "@/components/LoadingScreen";
 import dotenv from "dotenv";
+import SearchBar from "@/components/SearchBar";
 dotenv.config();
 
 export default function Home() {
@@ -39,6 +40,7 @@ export default function Home() {
 
   return (
     <>
+      <SearchBar />
       {!load && (
         <div className="bg-gray-100 p-6">
           {latest_products.length > 0 && (

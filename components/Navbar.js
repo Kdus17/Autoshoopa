@@ -91,13 +91,15 @@ export default function Navbar() {
           Contact
         </Link>
 
-        <Link
-          href="/add"
-          className="hover:text-yellow-400
+        {auth_context.state.token && (
+          <Link
+            href="/add"
+            className="hover:text-yellow-400
          transition duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
-        >
-          Add Product
-        </Link>
+          >
+            Add Product
+          </Link>
+        )}
       </div>
 
       <div className="flex flex-row gap-6 items-center font-mono">

@@ -5,6 +5,7 @@ import ProductList from "@/components/ProductList";
 
 import { IoChevronForwardOutline } from "react-icons/io5";
 import Link from "next/link";
+import SearchBar from "@/components/SearchBar";
 
 export default function HomePage() {
   const [brands, setBrands] = useState([]);
@@ -49,32 +50,35 @@ export default function HomePage() {
   }, [apply]);
 
   return (
-    <div className="">
-      <div className="flex flex-col bg-[url('https://demo2.wpopal.com/karpart/wp-content/uploads/2023/11/shop-bc.jpg')] h-75 text-center justify-center">
-        <h1 className="text-5xl text-white">Shop</h1>
-        <p className="flex flex-row items-center justify-center font-bold">
-          <Link href="/">Home</Link> <IoChevronForwardOutline /> PageShop
-        </p>
-      </div>
-      <div className="flex gap-6 py-6 flex-col md:flex-row ">
-        <div className="w-full flex">
-          <Filters
-            setBrands={setBrands}
-            setCategories={setCategories}
-            brands={brands}
-            categories={categories}
-            setYear={setYear}
-            setYear2={setYear2}
-            setMinimum={setMinimum}
-            setMaximum={setMaximum}
-            apply={apply}
-            setApply={setApply}
-          />
+    <>
+      <SearchBar />
+      <div className="">
+        <div className="flex flex-col bg-[url('https://demo2.wpopal.com/karpart/wp-content/uploads/2023/11/shop-bc.jpg')] h-75 text-center justify-center">
+          <h1 className="text-5xl text-white">Shop</h1>
+          <p className="flex flex-row items-center justify-center font-bold">
+            <Link href="/">Home</Link> <IoChevronForwardOutline /> PageShop
+          </p>
         </div>
-        <div>
-          <ProductList products={products} />
+        <div className="flex gap-6 py-6 flex-col md:flex-row ">
+          <div className="w-full flex">
+            <Filters
+              setBrands={setBrands}
+              setCategories={setCategories}
+              brands={brands}
+              categories={categories}
+              setYear={setYear}
+              setYear2={setYear2}
+              setMinimum={setMinimum}
+              setMaximum={setMaximum}
+              apply={apply}
+              setApply={setApply}
+            />
+          </div>
+          <div>
+            <ProductList products={products} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

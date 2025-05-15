@@ -19,13 +19,13 @@ export default function Contact() {
             week!
           </h1>
         </div>
-        <div className="flex flex-col gap-1">
+        {/* <div className="flex flex-col gap-1">
           <div className="flex flex-col md:flex-row text-center items-center justify-center gap-1">
             <HiOfficeBuilding className="text-yellow-400" />
             Office Location
           </div>
           <p>Addis Ababa</p>
-        </div>
+        </div> */}
         <div className="flex flex-col gap-1">
           <div className="flex flex-row gap-1 items-center">
             <FaPhone className="text-yellow-400" />
