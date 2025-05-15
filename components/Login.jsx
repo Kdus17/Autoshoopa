@@ -48,7 +48,7 @@ export default function Login (){
     return (
         <form action="" className="p-4 grid content-around rounded-lg text-black h-screen bg-white font-mono" onSubmit={handleSubmitForm}>
             <div className="justify-center flex flex-col items-center bg-white">
-            <div className="flex flex-col w-2/3 md:w-130 px-10 py-10 rounded-md shadow-xl">
+            <div className="flex flex-col w-3/3 md:w-130 px-10 py-10 rounded-md shadow-xl">
             <h3 className="text-2xl text-center font-semibold "> Login</h3>
 
             <label htmlFor="email" className="text-xl mt-4">Email:</label>
