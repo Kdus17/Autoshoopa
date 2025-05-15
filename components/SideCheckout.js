@@ -51,12 +51,29 @@ export default function SideCheckout() {
       },
       body: JSON.stringify(products),
     };
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACK_URL}api/orders/create-checkout-session`,
-      post_options
+    console.log(
+      "Request URL:",
+      `${process.env.NEXT_PUBLIC_BACK_URL}api/orders/create-checkout-session`
     );
-    const json_response = await response.json();
-    window.location.href = json_response.url;
+    console.log("Request body:", JSON.stringify(products, null, 2));
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACK_URL}api/orders/create-checkout-session`,
+        post_options
+      );
+      console.log("Response status:", response.status);
+      const json_response = await response.json();
+      console.log("Response data:", json_response);
+
+      if (json_response.url) {
+        window.location.href = json_response.url;
+      } else {
+        console.error("No URL in response:", json_response);
+      }
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
   };
 
   return (
