@@ -64,6 +64,7 @@ export default function AddProduct() {
     formData.append("category", category);
     formData.append("imageview", imageview);
     formData.append("quantity", quantity);
+    formData.append("seller", localStorage.getItem("username"));
     console.log("Sending quantity:", quantity);
 
     if (selectedFile) {

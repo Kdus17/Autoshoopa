@@ -7,14 +7,20 @@ import { Suspense } from "react";
 
 export default function OrderConformation() {
   const searchParams = useSearchParams();
-  const [orderId, setOrderId] = useState(null);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const session_id = searchParams.get("session_id");
-    if (session_id) {
-      setOrderId(session_id);
-      setLoading(false);
+    const productsParam = searchParams.get("products");
+    if (productsParam) {
+      try {
+        const decodedProducts = JSON.parse(decodeURIComponent(productsParam));
+        setProducts(decodedProducts);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error parsing products:", error);
+        setLoading(false);
+      }
     }
   }, [searchParams]);
 
@@ -41,15 +47,19 @@ export default function OrderConformation() {
             </p>
             <div className="mt-4 p-4 bg-gray-100 rounded-lg w-full">
               <p className="text-2xl font-semibold text-gray-800">
-                Order Number
+                Purchased Products
               </p>
-              <p className="text-xl text-gray-600 mt-2 w-full overflow-x-auto">
-                {orderId}
-              </p>
+              <div className="text-xl text-gray-600 mt-2">
+                {products.map((product, index) => (
+                  <p key={index} className="py-1">
+                    {product}
+                  </p>
+                ))}
+              </div>
             </div>
             <div className="flex flex-col gap-4 mt-6">
               <p className="text-lg text-gray-600">
-                Use this to track your order.
+                You can track your order status in your account.
               </p>
               <div className="flex gap-4 justify-center">
                 <Link
