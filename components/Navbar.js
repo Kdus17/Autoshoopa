@@ -35,7 +35,6 @@ export default function Navbar() {
         <span
           onClick={() => {
             setNav(!nav);
-            setCliked(true);
           }}
           className={`z-60 text-black inline-block px-4 hover:-translate-y-1 hover:text-yellow-400
              transform transition-transform duration-600 text-4xl ${
@@ -44,12 +43,24 @@ export default function Navbar() {
         >
           {clicked ? <FaGear /> : <CiMenuBurger />}
         </span>
-        {nav && <SideBar />}{" "}
+        {nav && (
+          <div
+            onClick={() => {
+              setNav(!nav);
+            }}
+          >
+            <SideBar />
+          </div>
+        )}{" "}
         {
           <Link href={"/"} className="flex flex-row">
             <span
               className="text-2xl self-center  cursor-pointer 
             z-100 transition duration-300 hover:-translate-y-1 hover:text-yellow-400"
+              onClick={() => {
+                setNav(false);
+                setCliked(true);
+              }}
             >
               AutoShoppa
             </span>
