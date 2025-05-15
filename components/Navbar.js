@@ -23,6 +23,7 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("autoshoppa-token");
     localStorage.removeItem("username");
+    localStorage.removeItem("email");
     auth_context.dispatch({ type: "LOGOUT" });
   };
 
@@ -35,6 +36,7 @@ export default function Navbar() {
         <span
           onClick={() => {
             setNav(!nav);
+            setCliked(true);
           }}
           className={`z-60 text-black inline-block px-4 hover:-translate-y-1 hover:text-yellow-400
              transform transition-transform duration-600 text-4xl ${
@@ -81,7 +83,7 @@ export default function Navbar() {
           className="hover:text-yellow-400
          transition duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
         >
-          Products
+          Shop
         </Link>
         <Link
           href="/contact"
@@ -89,6 +91,13 @@ export default function Navbar() {
          transition duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
         >
           Contact
+        </Link>
+        <Link
+          href="/manage"
+          className="hover:text-yellow-400
+         transition duration-300 ease-in-out hover:-translate-y-1 hidden md:block"
+        >
+          My Products
         </Link>
 
         {auth_context.state.token && (
@@ -123,8 +132,11 @@ export default function Navbar() {
           </div>
         )}
         {auth_context.state.token && (
-          <div className="flex items-center">
-            {localStorage.getItem("username")}
+          <div className="flex items-center gap-2 md:gap-10">
+            <div className="flex items-center">
+              <IoPersonCircleSharp className="text-2xl" />
+              {localStorage.getItem("username")}
+            </div>
             <Link
               href="/"
               onClick={() => handleLogout()}
