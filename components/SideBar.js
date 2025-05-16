@@ -9,7 +9,7 @@ export default function SideBar() {
       <nav className="flex flex-col gap-4">
         <Link
           key="/manage"
-          href="/MyOrders"
+          href="/manage"
           className="text-lg font-mono hover:bg-yellow-400 py-2 px-4 text-center
             "
         >
