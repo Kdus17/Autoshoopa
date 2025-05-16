@@ -1,11 +1,13 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { QRCodeSVG } from "qrcode.react";
 
 export default function OrderConfirmation() {
   const searchParams = useSearchParams();
   const [orderDetails, setOrderDetails] = useState(null);
   const [error, setError] = useState(null);
+  const [qrValue, setQrValue] = useState("");
 
   useEffect(() => {
     const sellerEmail = searchParams.get("selleremail");
@@ -25,6 +27,16 @@ export default function OrderConfirmation() {
     try {
       const parsedProducts = JSON.parse(decodeURIComponent(products));
       console.log("Parsed Products:", parsedProducts);
+      const qrData = {
+        orderDate: new Date().toISOString(),
+        products: parsedProducts.map((p) => ({
+          name: p.name,
+          seller: p.seller,
+          sellerEmail: p.selleremail,
+          price: p.price,
+        })),
+      };
+      setQrValue(JSON.stringify(qrData));
 
       if (!Array.isArray(parsedProducts)) {
         throw new Error("Invalid products data");
@@ -76,6 +88,19 @@ export default function OrderConfirmation() {
           </p>
         </div>
 
+        <div className="mt-6 flex flex-col items-center">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <QRCodeSVG
+              value={qrValue}
+              size={200}
+              level="H"
+              includeMargin={true}
+              className="mx-auto"
+            />
+          </div>
+          <p className="text-sm text-gray-500 mt-2">Order Qr</p>
+        </div>
+
         <div className="border-t border-gray-200 pt-6">
           <h2 className="text-xl font-semibold mb-4">Order Details</h2>
           <div className="space-y-4">
@@ -95,6 +120,7 @@ export default function OrderConfirmation() {
                     <p className="text-sm text-gray-500">
                       Email: {product.selleremail}
                     </p>
+                    <p>price: {product.price}</p>
                   </div>
                 </div>
               ))
